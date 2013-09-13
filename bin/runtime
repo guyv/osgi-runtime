@@ -1,0 +1,58 @@
+#!/bin/bash
+
+if [ -z "$CONSOLE_HOST" ]; then
+  export CONSOLE_HOST="localhost:15026"
+fi
+
+function console(){
+  java -Dosgi.console=${CONSOLE_HOST} -cp lib/org.eclipse.osgi.jar:lib/org.apache.felix.bundlerepository.jar:lib/eu.mjelen.runtime.jar eu.mjelen.runtime.Main
+}
+
+function start(){
+  echo "Starting runtime"
+  nohup java -cp lib/org.eclipse.osgi.jar:lib/org.apache.felix.bundlerepository.jar:lib/eu.mjelen.runtime.jar eu.mjelen.runtime.Main </dev/null > logs/runtime.log 2>&1 &
+  echo $! > logs/runtime.pid
+}
+
+function stop(){
+  echo "Stopping runtime"
+  if [ -e logs/runtime.pid ]; then
+    kill -s SIGTERM $(cat logs/runtime.pid)
+  fi
+}
+
+function restart(){
+  stop
+  start
+}
+
+function status(){
+  if [ -e logs/runtime.pid ] && $(kill -0 $(cat logs/runtime.pid) > /dev/null 2>&1); then
+    echo "Runtime running"
+    return 0
+  else
+    echo "Runtime not running"
+    return 1
+  fi
+}
+
+case $1 in
+    console)
+      console
+      ;;
+    start) 
+      start
+      ;;
+    stop)
+      stop
+      ;;
+    restart)
+      restart
+      ;;
+    status)
+      status
+      ;;
+    *) 
+      echo "Unknown option."
+      ;;
+esac
