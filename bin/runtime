@@ -5,7 +5,7 @@ if [ -z "$CONSOLE_HOST" ]; then
 fi
 
 function console(){
-  java -Dosgi.console=${CONSOLE_HOST} -cp lib/org.eclipse.osgi.jar:lib/org.apache.felix.bundlerepository.jar:lib/eu.mjelen.runtime.jar eu.mjelen.runtime.Main
+  java -Dosgi.console="${CONSOLE_HOST}" -cp lib/org.eclipse.osgi.jar:lib/org.apache.felix.bundlerepository.jar:lib/eu.mjelen.runtime.jar eu.mjelen.runtime.Main
 }
 
 function start(){
