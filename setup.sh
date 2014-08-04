@@ -3,14 +3,14 @@
 rm -rf lib
 mkdir -p lib
 
-wget -O lib/org.eclipse.osgi.jar "http://www.eclipse.org/downloads/download.php?file=/equinox/drops/R-Kepler-201306052000/org.eclipse.osgi_3.9.0.v20130529-1710.jar&r=1"
+wget -O lib/org.eclipse.osgi.jar "http://download.eclipse.org/equinox/drops/R-Luna-201406061215/download.php?dropFile=org.eclipse.osgi_3.10.0.v20140606-1445.jar"
 
-wget -O lib/org.apache.felix.gogo.runtime.jar "http://mirror.hosting90.cz/apache/felix/org.apache.felix.gogo.runtime-0.10.0.jar"
-wget -O lib/org.apache.felix.gogo.command.jar "http://mirror.hosting90.cz/apache/felix/org.apache.felix.gogo.command-0.12.0.jar"
-wget -O lib/org.apache.felix.gogo.shell.jar "http://mirror.hosting90.cz/apache/felix/org.apache.felix.gogo.shell-0.10.0.jar"
-wget -O lib/org.eclipse.equinox.console.jar "http://www.eclipse.org/downloads/download.php?file=/equinox/drops/R-Kepler-201306052000/org.eclipse.equinox.console_1.0.100.v20130429-0953.jar&r=1"
+wget -O lib/org.apache.felix.gogo.runtime.jar "http://central.maven.org/maven2/org/apache/felix/org.apache.felix.gogo.runtime/0.12.1/org.apache.felix.gogo.runtime-0.12.1.jar" 
+wget -O lib/org.apache.felix.gogo.command.jar "http://central.maven.org/maven2/org/apache/felix/org.apache.felix.gogo.command/0.14.0/org.apache.felix.gogo.command-0.14.0.jar"
+wget -O lib/org.apache.felix.gogo.shell.jar "http://central.maven.org/maven2/org/apache/felix/org.apache.felix.gogo.shell/0.10.0/org.apache.felix.gogo.shell-0.10.0.jar"
+wget -O lib/org.eclipse.equinox.console.jar "http://www.eclipse.org/downloads/download.php?file=/equinox/drops/R-Luna-201406061215/org.eclipse.equinox.console_1.1.0.v20140131-1639.jar&r=1"
 
-wget -O lib/org.apache.felix.bundlerepository.jar "http://mirror.hosting90.cz/apache/felix/org.apache.felix.bundlerepository-1.6.6.jar"
+wget -O lib/org.apache.felix.bundlerepository.jar "http://central.maven.org/maven2/org/apache/felix/org.apache.felix.bundlerepository/2.0.2/org.apache.felix.bundlerepository-2.0.2.jar"
 
 cd src
 
